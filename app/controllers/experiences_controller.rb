@@ -1,22 +1,22 @@
 class ExperiencesController < ApplicationController
-  # list all experiences
   def index
+    # retrieve all experiences from db
     @experiences = Experience.all
   end
 
-  # instantiate new experience instance and send it to the experience creation form
   def new
+    # instantiate new experience instance and send it to the experience creation form
     @experience = Experience.new
   end
 
-  # create a new experience
   def create
     # create experience instance with user provided parameters
     @experience = Experience.new(experience_params)
-    # @experience = current_user.id # to be checked!!
-    if @experience.save?
+    # set user id to current user
+    @experience.user_id = current_user.id
+    if @experience.save
       # redirect flat listing if data provided is valid
-      # redirect_to some_path
+      redirect_to root_path
     else
       # show form again if user data not valid
       render :new
