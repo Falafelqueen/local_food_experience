@@ -1,0 +1,8 @@
+<%# simple logic to print out a list of currently available experiences %>
+<ul>
+  <% @experiences.each do |experience| %>
+    <li>
+      <%= experience.name %>
+    </li>
+  <% end %>
+</ul>
