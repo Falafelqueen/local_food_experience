@@ -6,14 +6,16 @@ class ExperiencesController < ApplicationController
 
   # instantiate new experience instance and send it to the experience creation form
   def new
-    @experience = Experience.all
+    @experience = Experience.new
   end
 
+  # create a new experience
   def create
     # create experience instance with user provided parameters
     @experience = Experience.new(experience_params)
+    # @experience = current_user.id # to be checked!!
     if @experience.save?
-      # redirect user if data provided is valid
+      # redirect flat listing if data provided is valid
       # redirect_to some_path
     else
       # show form again if user data not valid
@@ -24,6 +26,7 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:name, :description, :price_per_hour, :min_time, :max_time, :user_id)
+    # only allow permitted data to avoid security vulnerabilities
+    params.require(:experience).permit(:name, :description, :price_per_hour, :min_time, :max_time)
   end
 end
