@@ -4,6 +4,10 @@ class ExperiencesController < ApplicationController
     @experiences = Experience.all
   end
 
+  def show
+    @experience = Experience.find(params[:id])
+  end
+
   def new
     # instantiate new experience instance and send it to the experience creation form
     @experience = Experience.new
