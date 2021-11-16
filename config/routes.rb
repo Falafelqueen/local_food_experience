@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # define experience actions
-  resources :experiences, only: %i[index new create show]
+  resources :experiences, only: %i[index new create show edit update]
 
 end

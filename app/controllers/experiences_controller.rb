@@ -19,11 +19,27 @@ class ExperiencesController < ApplicationController
     # set user id to current user
     @experience.user = current_user
     if @experience.save
-      # redirect flat listing if data provided is valid
+      # redirect experience listing if data provided is valid
       redirect_to root_path
     else
       # show form again if user data not valid
       render :new
+    end
+  end
+
+  def edit
+    @experience = Experience.find(params[:id])
+  end
+
+  def update
+    @experience = Experience.find(params[:id])
+    @experience.update(experience_params)
+    if @experience.save
+      # redirect experience listing if data provided is valid
+      redirect_to experience_path(@experience)
+    else
+      # show form again if user data not valid
+      render :update
     end
   end
 
