@@ -1,18 +1,11 @@
 <h1>This is the experience creation form</h1>
-<%= form_for @experience do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br />
 
-  <%= f.label :description %><br>
-  <%= f.text_field :description %><br />
-
-  <%= f.label :price_per_hour %><br>
-  <%= f.number_field :price_per_hour %><br />
-
-  <%= f.label :min_time %><br>
-  <%= f.number_field :min_time %><br />
-
-  <%= f.label :max_time %><br>
-  <%= f.number_field :max_time %><br />
-  <%= f.submit %>
+<%= simple_form_for @experience do |f| %>
+  <%= f.input :name %><br />
+  <%= f.input :description %><br />
+  <%= f.input :price_per_hour %><br />
+  <%= f.input :min_time %><br />
+  <%= f.input :max_time %><br />
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
 <% end %>
