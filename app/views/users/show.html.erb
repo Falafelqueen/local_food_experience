@@ -10,7 +10,11 @@
         <%= @user.bio %>
   </div>
   <div class="user-image">
+  <% if @user.photo %>
   <%= cl_image_tag @user.photo.key, width: 400, height: 300, crop: :fill %>
+  <% else %>
+  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+  <% end %>
   </div>
   </div>
 </div>
