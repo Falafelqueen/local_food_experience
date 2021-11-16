@@ -2,7 +2,10 @@
 <ul>
   <% @experiences.each do |experience| %>
     <li>
-      <%= experience.name %>
+      <%= link_to experience.name, experience_path(experience) %>
     </li>
   <% end %>
 </ul>
+
+
+<%# cards for experiences %>
