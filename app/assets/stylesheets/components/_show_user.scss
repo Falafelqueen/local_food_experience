@@ -1,0 +1,15 @@
+.user-details{
+  display:grid;
+  grid-template-columns: 3fr 1fr;
+  margin:15px 0px;
+}
+.user-image{
+  img{
+    border-radius:25px;
+    height:200px;
+}
+}
+
+.container{
+  padding:15px;
+}
