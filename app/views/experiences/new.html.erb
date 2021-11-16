@@ -1,11 +1,29 @@
-<h1>This is the experience creation form</h1>
+<div class="login-container">
+  <h1>Let's start create your experience</h1>
 
-<%= simple_form_for @experience do |f| %>
-  <%= f.input :name %><br />
-  <%= f.input :description %><br />
-  <%= f.input :price_per_hour %><br />
-  <%= f.input :min_time %><br />
-  <%= f.input :max_time %><br />
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<% end %>
+
+    <%= simple_form_for @experience do |f| %>
+      <div class="form">
+        <div class="form-info">
+          <%= f.input :name %>
+        </div>
+        <div class="form-info">
+          <%= f.input :photo, as: :file %>
+        </div>
+        <div class="form-info">
+          <%= f.input :description %>
+        </div>
+        <div class="form-info">
+          <%= f.input :price_per_hour %>
+        </div>
+        <div class="form-info">
+          <%= f.input :min_time %>
+        </div>
+        <div class="form-info">
+          <%= f.input :max_time %>
+        </div>
+    </div>
+      <%= f.button :submit, "Create your experience", class: "primary-button"  %>
+
+    <% end %>
+</div>
