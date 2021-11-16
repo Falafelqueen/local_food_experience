@@ -3,37 +3,55 @@ body{
   background: #FAF4EF;
 }
 
-/* Rectangle 2 */
-.banner-holder{
-  position:relative;
-}
-.banner-rectangle{position: absolute;
-width: 1362px;
-height: 625px;
-left: 39px;
-top: 87px;
-background: #191206;
-border-radius: 25px;
-z-index:-10;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+// /* Rectangle 2 */
+// .banner-holder{
+//   position:relative;
+// }
+// .banner-rectangle{
+// position: absolute;
+// width: 100%;
+// height: 625px;
+// left: 39px;
+// top: 87px;
+// background: #191206;
+// border-radius: 25px;
+// // z-index:-10;
+// }
+
 .banner{
-  position: absolute;
-  width: 1362px;
-  height: 625px;
-  left: 39px;
-  top: 87px;
+  // position: absolute;
+  width: 100%;
+  height: 525px;
+  // left: 39px;
+  // top: 87px;
   border-radius: 25px;
-  display:inline-block
+  // display:inline-block;
+  // background-color: #191206;
+  background: url("assets/banner.jpg");
+  background-position: right -310px bottom -10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -40px;
 }
+
 .banner-content{
   color:white;
   width:60%;
+  background: linear-gradient(90deg, #191206 60%, rgba(25, 18, 6, 0) 100%);
+  height: 100%;
+  border-radius: 25px 25px;
 }
 .banner-text{
+  padding: 2em 0 0 2em;
   margin: 60px auto;
 }
 .banner-buttons{
+  padding-left: 2em;
   display:flex;
   align-items: center;
   p {
@@ -50,26 +68,27 @@ z-index:-10;
     }
   }
 }
-/* rani-george-nXOgb54BMB4-unsplash 1 */
-.banner-img{
-position: absolute;
-width: 938px;
-height: 625px;
-left: 465px;
-top: 87px;
-background-size:cover;
-z-index:-2;
-border-radius: 0px 25px 25px 0px;
-// background-image: url( "app/assets/images/rani-george-nXOgb54BMB4-unsplash.jpg");
-}
+// /* rani-george-nXOgb54BMB4-unsplash 1 */
+// .banner-img{
+// position: absolute;
+// width: 100%;
+// height: 625px;
+// left: 465px;
+// top: 87px;
+// background-size:cover;
+// z-index:-2;
+// border-radius: 0px 25px 25px 0px;
+// // background-image: url( "app/assets/images/rani-george-nXOgb54BMB4-unsplash.jpg");
+// }
 
-/* Rectangle 3 */
+// /* Rectangle 3 */
 
-.banner-rectangle-overlay{position: absolute;
-width: 937px;
-height: 623px;
-left: 464px;
-top: 87px;
-background: linear-gradient(90deg, #191206 0%, rgba(25, 18, 6, 0) 100%);
-z-index:-1;
-}
+// .banner-rectangle-overlay{
+// position: absolute;
+// width: 937px;
+// height: 623px;
+// left: 464px;
+// top: 87px;
+// background: linear-gradient(90deg, #191206 0%, rgba(25, 18, 6, 0) 100%);
+// z-index:-1;
+// }
