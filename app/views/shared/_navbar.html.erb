@@ -1,7 +1,22 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="nav-left">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "Logo.svg", alt:"Logo" %>
   <% end %>
+
+  <div class="nav-block block-1">
+  <p>Categories</p>
+  </div>
+  <div class="nav-block block-2">
+  <p>Experiences</p>
+  </div>
+
+</div>
+  <div class="nav-otherside">
+  <div class="nav-block block-4">
+    <%= image_tag "searchicon.svg", alt:"searchicon" %>
+  </div>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -26,9 +41,14 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+          <%= link_to  new_user_session_path do %>
+          <div class="nav-block block-5">
+              <p>Sign in</p>
+              <%= image_tag "right_arrow.svg", alt:"right_arrow" %>
+              </div>
+              <% end %>
+  </div>
+
       <% end %>
     </ul>
   </div>
