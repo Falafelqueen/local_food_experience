@@ -5,7 +5,7 @@ class Experience < ApplicationRecord
   has_one_attached :photo
 
   validates :description, length: { maximum: 500 }
-  validates :name, length: { maximum: 20 }
+  validates :name, length: { maximum: 50 }
   validates :price_per_hour, numericality: { only_integer: true }
   validates :min_time, numericality: { only_integer: true }
   validates :min_time, numericality: { only_integer: true }
