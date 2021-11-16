@@ -1,0 +1,15 @@
+<h2>Edit your Experience</h2>
+
+<%= simple_form_for(@experience) do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :description %><br>
+  <%= f.text_area :description %><br>
+  <%= f.label :price_per_hour %><br>
+  <%= f.text_field :price_per_hour %><br>
+  <%= f.label :min_time %><br>
+  <%= f.text_field :min_time %><br>
+  <%= f.label :max_time %><br>
+  <%= f.text_field :max_time %><br>
+  <%= f.button :submit, "Save changes", class: "primary-button" %>
+<% end %>
