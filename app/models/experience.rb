@@ -8,6 +8,6 @@ class Experience < ApplicationRecord
   validates :name, length: { maximum: 20 }
   validates :price_per_hour, numericality: { only_integer: true }
   validates :min_time, numericality: { only_integer: true }
-  validates :min_time, numericality: { only_integer: true }
+  validates :max_time, numericality: { only_integer: true }
 
 end
