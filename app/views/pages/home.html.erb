@@ -13,3 +13,20 @@
     </div>
   </div>
 </div>
+
+<h3>Our Local Experiences</h3>
+
+<div class="card-holder">
+  <% @experiences.each do |experience| %>
+  <div class="card">
+    <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
+    </div>
+  <%= link_to experience_path(experience) do %>
+    <div class="card-info">
+      <h2><%= experience.name %></h2>
+      <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
