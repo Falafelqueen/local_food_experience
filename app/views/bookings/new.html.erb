@@ -1,0 +1,8 @@
+
+<h2>New booking</h2>
+
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :min_time %><br />
+  <%= f.input :max_time %><br />
+  <%= f.button :submit %>
+<% end %>

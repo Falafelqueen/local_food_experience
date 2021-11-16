@@ -1,8 +1,7 @@
-
-
 .login-container {
-  max-width: 800px;
+  max-width: 650px;
   margin: 3em auto;
+  padding: 0 0 1em 0;
   border-bottom: 3px solid $brown;
 
   h2 {
@@ -31,4 +30,20 @@
   border-top: 3px solid $brown;
   margin-top:15px;
   padding: 5px 0px;
+}
+
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 2em 0;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.form-inputs {
+  width: 50%;
 }
