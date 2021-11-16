@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300&family=Permanent+Marker&family=Poppins&display=swap');
-
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: #FAF4EF;
+  background-color: #FAF4EF;
   a {
     text-decoration: none;
     color:inherit;
@@ -33,7 +31,7 @@
   font-family: 'Poppins', sans-serif;
   font-size:18px;
   line-height: 33px;
-  border-right: 3px solid black;
+  border-right: 3px solid $brown;
   padding: 15px 0px;
   p,img{
     margin: 0px 45px 0px ;
@@ -41,7 +39,7 @@
 }
 
 .nav-block.block-1, .nav-block.block-4{
-  border-left: 3px solid black ;
+  border-left: 3px solid $brown ;
 }
 .nav-block.block-4{
   margin:0px 30px;

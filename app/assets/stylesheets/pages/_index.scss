@@ -1,2 +1,30 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body{
+  background: $cream;
+  font-size: 18px;
+  line-height: 1.1;
+  font-family: 'Poppins', sans-serif;
+  color: $brown;
+}
+
+a {
+  color: $brown;
+  text-decoration: none;
+  &:hover {
+    color: $brown;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
