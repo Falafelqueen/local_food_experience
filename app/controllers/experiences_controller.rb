@@ -17,7 +17,7 @@ class ExperiencesController < ApplicationController
     # create experience instance with user provided parameters
     @experience = Experience.new(experience_params)
     # set user id to current user
-    @experience.user_id = current_user.id
+    @experience.user = current_user
     if @experience.save
       # redirect flat listing if data provided is valid
       redirect_to root_path
@@ -31,6 +31,6 @@ class ExperiencesController < ApplicationController
 
   def experience_params
     # only allow permitted data to avoid security vulnerabilities
-    params.require(:experience).permit(:name, :description, :price_per_hour, :min_time, :max_time)
+    params.require(:experience).permit(:name, :description, :price_per_hour, :min_time, :max_time,:photo)
   end
 end
