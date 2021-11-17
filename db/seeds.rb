@@ -66,7 +66,6 @@ meal_types = ["brunch", "unforgetable meal", "picknick", "dinner", "lunch", "fam
   Nam suscipit mi quis aliquam suscipit.", price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
   exp3.photo.attach(io: file3, filename: 'wii3.png', content_type: 'image/png')
   exp3.save!
-
 end
 
 
