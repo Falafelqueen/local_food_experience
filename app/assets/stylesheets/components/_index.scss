@@ -10,7 +10,7 @@
 
 .card-holder{
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 20px;
   margin-top: 50px;
 }
@@ -58,4 +58,16 @@
   justify-content: space-between;
   align-items: center;
   height:25%;
+}
+
+.map-card-container{
+  display: flex;
+}
+
+#map {
+  position: sticky;
+  top: 0;
+  left: 0;
+  // padding-right: 30px;
+  margin-right: 50px;
 }
