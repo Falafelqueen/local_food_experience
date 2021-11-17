@@ -12,7 +12,9 @@
   }
   justify-content: space-between;
 }
-
+.dropdown{
+  cursor:pointer;
+}
 .nav-otherside, .nav-left{
   display:flex;
   align-items: center;
