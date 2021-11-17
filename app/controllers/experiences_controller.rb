@@ -2,11 +2,12 @@ class ExperiencesController < ApplicationController
   def index
     # retrieve all experiences from db
     @experiences = Experience.all
+    # define markers and info window for map
     @markers = @experiences.geocoded.map do |experience|
       {
         lat: experience.latitude,
         lng: experience.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { experience: experience }),
+        info_window: render_to_string(partial: "info_window", locals: { experience: experience })
         # image_url: helpers.asset_url(experience.photo.key)
       }
     end
