@@ -1,11 +1,11 @@
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 // extends bounds in relation to markers
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+  markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
@@ -27,11 +27,11 @@ const addMarkersToMap = (map, markers) => {
       .setPopup(popup)
       .addTo(map);
   });
-}
+};
 
 const initMapbox = () => {
   // look for map element in html
-  const mapElement = document.getElementById('map');
+  const mapElement = document.getElementById("map");
 
   // only build a map if there's a div#map to inject into
   if (mapElement) {
@@ -40,8 +40,8 @@ const initMapbox = () => {
 
     //create map
     const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      container: "map",
+      style: "mapbox://styles/mapbox/streets-v10",
     });
 
     // retrieve markers
@@ -51,12 +51,13 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
 
     // adds search feature to map
-    map.addControl(new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
-    }), '');
+    map.addControl(
+      new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+      })
+    );
   }
-
 };
 
 export { initMapbox };
