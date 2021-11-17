@@ -2,6 +2,15 @@ class ExperiencesController < ApplicationController
   def index
     # retrieve all experiences from db
     @experiences = Experience.all
+    # define markers and info window for map
+    @markers = @experiences.geocoded.map do |experience|
+      {
+        lat: experience.latitude,
+        lng: experience.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { experience: experience })
+        # image_url: helpers.asset_url(experience.photo.key)
+      }
+    end
   end
 
   def show
@@ -47,6 +56,6 @@ class ExperiencesController < ApplicationController
 
   def experience_params
     # only allow permitted data to avoid security vulnerabilities
-    params.require(:experience).permit(:name, :description, :price_per_hour, :min_time, :max_time,:photo)
+    params.require(:experience).permit(:name, :description, :price_per_hour, :min_time, :max_time, :photo)
   end
 end
