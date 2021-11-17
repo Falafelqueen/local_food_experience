@@ -47,6 +47,6 @@ class ExperiencesController < ApplicationController
 
   def experience_params
     # only allow permitted data to avoid security vulnerabilities
-    params.require(:experience).permit(:name, :description, :price_per_hour, :min_time, :max_time,:photo)
+    params.require(:experience).permit(:name, :description, :price_per_hour, :min_time, :max_time, :photo)
   end
 end
