@@ -1,0 +1,12 @@
+.book-button {
+  background-color: #D06313;
+  padding: 1em 2em;
+  border-radius: 50px;
+  color: $cream;
+  font-weight: bold;
+  margin-top: 1em;
+  text-align: center;
+  &:hover {
+    background-color: #e97a2a;
+  }
+}

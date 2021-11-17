@@ -1,5 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show-experiences";
 
 body{
   background: $cream;
@@ -19,7 +20,11 @@ a {
   }
 }
 
-h1, h2, h3 {
+h1 {
+  font-family: 'Righteous', cursive;
+}
+
+h2, h3 {
   font-family: 'Poppins', sans-serif;
 }
 

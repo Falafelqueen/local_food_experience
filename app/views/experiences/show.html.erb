@@ -1,6 +1,21 @@
 <div class="container">
-<h1><%= @experience.name %></h1>
-<%= @experience.description %>
-<%= cl_image_tag @experience.photo.key, height: 300, width: 400, crop: :fill %>
-
+  <div class="exp-page">
+    <div class="exp-image">
+      <%= cl_image_tag @experience.photo.key, crop: :fill %>
+    </div>
+    <div class="exp-content">
+      <h1><%= @experience.name %></h1>
+      <div class="content">
+        <p><%= @experience.description %></p>
+        <div class="exp-col">
+          <div class="exp-details">
+            <p><%= @experience.price_per_hour %>€ /hour</p>
+            <p>Minimum time: <%= @experience.min_time %> day</p>
+            <p>Maximum time: <%= @experience.max_time %> days</p>
+          </div>
+          <%= link_to @experience_path, "Book now", class: "book-button" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
