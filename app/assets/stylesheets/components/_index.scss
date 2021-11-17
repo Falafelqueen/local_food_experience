@@ -8,6 +8,12 @@
 @import "map";
 
 
+.card-holder-map{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 50px;
+}
 .card-holder{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
