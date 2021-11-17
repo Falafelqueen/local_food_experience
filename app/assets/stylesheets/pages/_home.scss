@@ -29,8 +29,8 @@
 
 .banner-content{
   color:$cream;
-  width:60%;
-  background: linear-gradient(90deg, $brown 60%, rgba(25, 18, 6, 0) 100%);
+  max-width:400px;
+  background: linear-gradient(90deg, $brown 33%, rgba(25, 18, 6, 0) 100%);
   height: 100%;
   border-radius: 25px 25px;
 }

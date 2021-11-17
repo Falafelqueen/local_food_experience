@@ -10,14 +10,19 @@
 
 .card-holder{
   display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.card-holder-map{
+  display:grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  margin-top: 50px;
+  gap: 16px;
 }
 
 .card{
   background-color: $brown;
-  height:300px;
+  height:250px;
   border-radius:25px;
   color:$cream;
   h2{
@@ -57,11 +62,12 @@
   margin:8px 16px;
   justify-content: space-between;
   align-items: center;
-  height:25%;
+  height:18%;
 }
 
 .map-card-container{
   display: flex;
+  margin-top: 25px;
 }
 
 #map {
@@ -70,4 +76,5 @@
   left: 0;
   // padding-right: 30px;
   margin-right: 50px;
+
 }

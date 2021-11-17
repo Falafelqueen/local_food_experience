@@ -4,19 +4,18 @@
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  padding: 0px 50px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  padding: 50px 50px 0 50px;
+  margin: 100px 0;
   color: rgba(0,0,0,0.3);
-  border-top: 3px solid #191206;
-  padding-top: 50px;
+  border-top: 3px solid $brown;
+
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: black;
+  color: $brown;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
