@@ -28,7 +28,9 @@
     </div>
     <div class="card-info">
       <h2><%= experience.name %></h2>
-      <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% unless experience.user.photo.attachment.nil? %>
+        <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
     </div>
   </div>
     <% end %>
