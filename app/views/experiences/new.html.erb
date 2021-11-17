@@ -5,22 +5,25 @@
     <%= simple_form_for @experience do |f| %>
       <div class="form">
         <div class="form-info">
-          <%= f.input :name %>
+          <%= f.input :name, required: true %>
         </div>
         <div class="form-info">
-          <%= f.input :photo, as: :file %>
+          <%= f.input :address, required: true %>
         </div>
         <div class="form-info">
-          <%= f.input :description %>
+          <%= f.input :photo, as: :file, required: true %>
         </div>
         <div class="form-info">
-          <%= f.input :price_per_hour %>
+          <%= f.input :description, required: true %>
         </div>
         <div class="form-info">
-          <%= f.input :min_time %>
+          <%= f.input :price_per_hour, required: true %>
         </div>
         <div class="form-info">
-          <%= f.input :max_time %>
+          <%= f.input :min_time, required: true %>
+        </div>
+        <div class="form-info">
+          <%= f.input :max_time, required: true %>
         </div>
     </div>
       <%= f.button :submit, "Create your experience", class: "primary-button"  %>

@@ -16,7 +16,7 @@
     </div>
     <div class="user-image">
       <% if @user.photo.attachment.nil? %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+      <%= image_tag "https://sdchefs.org/wp-content/uploads/2016/07/chef-placeholder.png" %>
       <% else %>
       <%= cl_image_tag @user.photo.key %>
       <% end %>
