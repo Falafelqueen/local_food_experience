@@ -6,14 +6,19 @@
   <div class="user-details">
     <div class="user-info">
           <h1><%= @user.name %></h1>
-          <%= @user.phone_number %>
+          <div class="user-info-element">
+          <strong>Phone:</strong> <%= @user.phone_number %>
+          </div>
+          <div class="user-info-element">
+          <strong>Bio:</strong>
           <%= @user.bio %>
+          </div>
     </div>
     <div class="user-image">
       <% if @user.photo.attachment.nil? %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
       <% else %>
-      <%= cl_image_tag @user.photo.key, width: 400, height: 300, crop: :fill %>
+      <%= cl_image_tag @user.photo.key %>
       <% end %>
     </div>
   </div>
@@ -23,16 +28,16 @@
   <h2>My experiences</h2>
   <div class="card-holder">
     <% @user.experiences.each do |experience| %>
+    <%= link_to experience_path(experience) do %>
     <div class="card">
       <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
       </div>
-    <%= link_to experience_path(experience) do %>
       <div class="card-info">
         <h2><%= experience.name %></h2>
         <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       </div>
-      <% end %>
     </div>
+      <% end %>
     <% end %>
   </div>
 </div>
