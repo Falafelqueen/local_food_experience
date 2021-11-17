@@ -12,11 +12,13 @@
     width:250px;
     object-fit: cover;
     object-position: center;
+    border: 3px solid $brown;
 }
 }
 .user-info-header{
   color: $light-brown;
   font-size:14px;
+  text-align:end;
 }
 .user-info{
   padding-right: 16px;

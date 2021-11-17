@@ -1,7 +1,7 @@
 <div class="container">
   <div class="user-info-header">
-    <%= @user.id %>
-    <%= @user.created_at %>
+    <%# <%= @user.id %>
+    <%# <%= @user.created_at %>
   </div>
   <div class="user-details">
     <div class="user-info">
@@ -27,7 +27,7 @@
 <div class="container">
   <h2>My experiences</h2>
   <div class="card-holder">
-    <% @user.experiences.each do |experience| %>
+    <% @user.experiences.sample(3).each do |experience| %>
     <%= link_to experience_path(experience) do %>
     <div class="card">
       <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
