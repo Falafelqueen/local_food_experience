@@ -6,14 +6,19 @@
   <div class="user-details">
     <div class="user-info">
           <h1><%= @user.name %></h1>
-          <%= @user.phone_number %>
+          <div class="user-info-element">
+          <strong>Phone:</strong> <%= @user.phone_number %>
+          </div>
+          <div class="user-info-element">
+          <strong>Bio:</strong>
           <%= @user.bio %>
+          </div>
     </div>
     <div class="user-image">
       <% if @user.photo.attachment.nil? %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
       <% else %>
-      <%= cl_image_tag @user.photo.key, width: 400, height: 300, crop: :fill %>
+      <%= cl_image_tag @user.photo.key %>
       <% end %>
     </div>
   </div>
