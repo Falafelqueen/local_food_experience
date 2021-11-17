@@ -10,20 +10,20 @@
 
 .card-holder{
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   margin-top: 50px;
 }
 
 .card{
   background-color: $brown;
-  height:350px;
+  height:300px;
   border-radius:25px;
   color:$cream;
   h2{
     font-family:$headers-font;
+    font-size:20px;
   }
-
   a{
     color:inherit;
     text-decoration: none;
@@ -54,7 +54,8 @@
 
 .card-info{
   display:flex;
-  margin:20px;
+  margin:8px 16px;
   justify-content: space-between;
   align-items: center;
+  height:25%;
 }
