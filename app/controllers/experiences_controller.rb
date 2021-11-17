@@ -2,6 +2,12 @@ class ExperiencesController < ApplicationController
   def index
     # retrieve all experiences from db
     @experiences = Experience.all
+    @markers = @experiences.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
