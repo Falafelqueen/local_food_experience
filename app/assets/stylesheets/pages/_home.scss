@@ -1,30 +1,27 @@
-// Specific CSS for your home-page
-
-// /* Rectangle 2 */
-// .banner-holder{
-//   position:relative;
-// }
-// .banner-rectangle{
-// position: absolute;
-// width: 100%;
-// height: 625px;
-// left: 39px;
-// top: 87px;
-// background: #191206;
-// border-radius: 25px;
-// // z-index:-10;
-// }
-
-.banner{
-  // position: absolute;
+.homepage-video {
+  position: absolute;
+  top:40px;
   width: 100%;
   height: 525px;
-  // left: 39px;
-  // top: 87px;
   border-radius: 25px;
-  // display:inline-block;
-  // background-color: #191206;
-  background: url("assets/banner.jpg");
+}
+
+#videoBG {
+  width: 100%    !important;
+  height: 525px   !important;
+  object-fit: cover;
+  border-radius: 25px;
+  margin-top: -40px;
+  z-index: -10;
+  position: absolute;
+}
+
+.banner{
+  position: relative;
+  width: 100%;
+  height: 525px;
+  border-radius: 25px;
+  // background: url("assets/banner.jpg");
   background-position: right -310px bottom -10px;
   background-size: cover;
   background-repeat: no-repeat;
