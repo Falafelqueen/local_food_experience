@@ -13,9 +13,8 @@
       </div>
     </div>
     <div class="homepage-video">
-      <video id="videoBG" poster="assets/banner.jpg" autoplay muted loop>
-          <source src="assets/homepage.mp4" type="video/mp4">
-      </video>
+      <%= video_tag "homepage.mp4", id: "videoBG", autoplay: true, muted: true, controls: false, loop: true %>
+
     </div>
   </div>
 <% end %>
