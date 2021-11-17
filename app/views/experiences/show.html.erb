@@ -1,7 +1,7 @@
 <div class="container">
   <div class="exp-page">
     <div class="exp-image">
-      <%= cl_image_tag @experience.photo.key, crop: :fill %>
+      <%= cl_image_tag @experience.photo.key, crop: :fill, width:800 %>
     </div>
     <div class="exp-content">
       <h1><%= @experience.name %></h1>
