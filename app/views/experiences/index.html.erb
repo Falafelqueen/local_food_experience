@@ -1,26 +1,24 @@
 <%# simple logic to print out a list of currently available experiences %>
-
 <div class="map-card-container">
   <div id="map"
-      style="width: 60%; height: 700px;"
+      style="width: 60%; height: 100vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-<div class="card-holder-map">
-
-  <% @experiences.each do |experience| %>
-  <%= link_to experience_path(experience) do %>
-  <div class="card">
-    <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
+  <div class="card-holder-map">
+    <% @experiences.each do |experience| %>
+    <%= link_to experience_path(experience) do %>
+    <div class="card">
+      <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
+      </div>
+      <div class="card-info">
+        <h2><%= experience.name %></h2>
+        <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      </div>
     </div>
-    <div class="card-info">
-      <h2><%= experience.name %></h2>
-      <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    </div>
-  </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 </div>
 
       <%# <%= link_to experience.name, experience_path(experience) %>
