@@ -2,10 +2,11 @@ class ExperiencesController < ApplicationController
   def index
     # retrieve all experiences from db
     @experiences = Experience.all
-    @markers = @experiences.geocoded.map do |flat|
+    @markers = @experiences.geocoded.map do |experience|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: experience.latitude,
+        lng: experience.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { experience: experience })
       }
     end
   end

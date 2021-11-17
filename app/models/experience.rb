@@ -10,4 +10,6 @@ class Experience < ApplicationRecord
   validates :min_time, numericality: { only_integer: true }
   validates :max_time, numericality: { only_integer: true }
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
