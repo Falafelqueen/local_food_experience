@@ -1,9 +1,10 @@
 <%# simple logic to print out a list of currently available experiences %>
-<div id="map"
-     style="width: 60%; height: 500px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+<div class="map-card-container">
+  <div id="map"
+      style="width: 60%; height: 700px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 <div class="card-holder">
   <% @experiences.each do |experience| %>
   <%= link_to experience_path(experience) do %>
@@ -17,6 +18,7 @@
   </div>
     <% end %>
   <% end %>
+</div>
 </div>
 
       <%# <%= link_to experience.name, experience_path(experience) %>
