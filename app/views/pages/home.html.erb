@@ -1,23 +1,24 @@
+<%= link_to experiences_path do %>
+  <div class="banner">
+    <div class="banner-content">
+      <div class="banner-text">
+        <h1>This is my kitchen</h1>
+        <p>Taste regional cuisine, meet new people and have a unique local food experience ...</p>
+      </div>
+      <div class="banner-buttons">
 
-<div class="banner">
-  <div class="homepage-video">
-    <video id="videoBG" poster="assets/banner.jpg" autoplay muted loop>
-        <source src="assets/homepage.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="banner-content">
-    <div class="banner-text">
-      <h1>This is my kitchen</h1>
-      <p>Taste regional cuisine, meet new people and have a unique local food experience ...</p>
+        <button class="btn ca">Start your experience <i class="fas fa-chevron-right"></i></button>
+
+        <p>It's free</p>
+      </div>
     </div>
-    <div class="banner-buttons">
-    <%= link_to experiences_path do %>
-      <button class="btn ca">Start your experience <i class="fas fa-chevron-right"></i></button>
-    <% end %>
-      <p>It's free</p>
+    <div class="homepage-video">
+      <video id="videoBG" poster="assets/banner.jpg" autoplay muted loop>
+          <source src="assets/homepage.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
-</div>
+<% end %>
 
 <h3>Our Local Experiences</h3>
 
