@@ -27,19 +27,20 @@
 <div class="container">
   <h2>My experiences</h2>
   <div class="card-holder">
-    <% @user.experiences.sample(3).each do |experience| %>
-      <% if experience.photo.attachment.nil? %>
+  <%# <% raise  %> %>
+    <% @user.experiences.each do |experience| %>
+      <% unless experience.photo.attachment.nil? %>
         <% link_to experience_path(experience) do %>
           <div class="card">
-            <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
+          <%# <% raise %> %>
+            <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
+            <div class="card-info">
+              <h2><%= experience.name %></h2>
+              <% unless @user.photo.attachment.nil? %>
+                <% cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
+            </div>
           </div>
-          <div class="card-info">
-            <h2><%= experience.name %></h2>
-            <% unless @user.photo.attachment.nil? %>
-              <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-          </div>
-        </div>
         <% end %>
       <% end %>
     <% end %>
