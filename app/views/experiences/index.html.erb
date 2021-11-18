@@ -9,10 +9,7 @@
     <% @experiences.each do |experience| %>
     <%= link_to experience_path(experience) do %>
     <div class="card">
-      <% unless experience.photo.attachment.nil? %>
-        <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
-      <% end %>
-      </div>
+      <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
       <div class="card-info">
         <h2><%= experience.name %></h2>
         <% unless experience.user.photo.attachment.nil? %>
@@ -27,6 +24,10 @@
   </div>
 </div>
 
+      <%# <% unless experience.photo.attachment.nil? %>
+        <%# <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
+      <%# <% end %>
+      <%# </div> %>
       <%# <%= link_to experience.name, experience_path(experience) %>
 
       <%# <p>with</p>

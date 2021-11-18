@@ -15,11 +15,9 @@
           </div>
     </div>
     <div class="user-image">
-      <% if @user.photo.attachment.nil? %>
-        <%= image_tag "https://sdchefs.org/wp-content/uploads/2016/07/chef-placeholder.png" %>
-      <% else %>
+
         <%= cl_image_tag @user.photo.key %>
-      <% end %>
+
     </div>
   </div>
 </div>
@@ -27,22 +25,17 @@
 <div class="container">
   <h2>My experiences</h2>
   <div class="card-holder">
-  <%# <% raise  %> %>
     <% @user.experiences.each do |experience| %>
-      <% unless experience.photo.attachment.nil? %>
-        <% link_to experience_path(experience) do %>
-          <div class="card">
-          <%# <% raise %> %>
-            <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
-            <div class="card-info">
-              <h2><%= experience.name %></h2>
-              <% unless @user.photo.attachment.nil? %>
-                <% cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+<%= link_to experience_path(experience) do %>
+  <div class="card">
+    <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
+    </div>
+    <div class="card-info">
+      <h2><%= experience.name %></h2>
+        <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    </div>
+  </div>
+<% end %>
     <% end %>
   </div>
 </div>
