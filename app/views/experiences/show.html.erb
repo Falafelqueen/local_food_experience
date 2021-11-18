@@ -20,7 +20,7 @@
             <p>Minimum time: <%= @experience.min_time %> day</p>
             <p>Maximum time: <%= @experience.max_time %> days</p>
           </div>
-          <%= link_to @experience_path, "Book now", class: "book-button" %>
+          <%= link_to "Book now", new_experience_booking_path(@experience), class: "book-button" %>
         </div>
       </div>
     </div>

@@ -1,25 +1,36 @@
-<div class="container">
-  <h2>New booking</h2>
-  <%= link_to experience_path(@experience) do %>
-  <h4><%= @experience.name %></h4>
-  <% end %>
-  <p>from:
-  <%= link_to user_path(@experience.user_id)do %>
-  <%= @experience.user["name"] %>
-  <% end %></p>
-  <p>Price per day: <%= @experience.price_per_hour %></p>
+<div class="container section-bottom">
+  <small>New booking</small>
 
-  <%= simple_form_for [@experience, @booking] do |f| %>
-  <div class="form">
-    <div class="form-info">
-        <%= f.input :start_date, as: :string , input_html: {class: "datepicker"}%>
+  <div class="d-flex">
+    <div class="w-50">
+      <div class="d-flex justify-content-between align-items-center align-content-center">
+        <h1><%= link_to @experience.name, experience_path(@experience) %></h1>
+        <div class="d-flex">
+        <p>with <%= @experience.user["name"] %> <%= cl_image_tag @experience.user.photo.key, class: "avatar-large" %></p>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column">
+        <h2><%= @experience.price_per_hour %>€</h2>
+        <p>per day</p>
+      </div>
+
+      <%= simple_form_for [@experience, @booking] do |f| %>
+      <div class="form">
+        <div class="form-info">
+            <%= f.input :start_date, as: :string , input_html: {class: "datepicker"}%>
+        </div>
+        <div class="form-info">
+            <%= f.input :end_date, as: :string ,input_html: {class: "datepicker"}%>
+        </div>
+        <%= f.button :submit, "Book now", class:"primary-button" %>
+      <% end %>
+      </div>
     </div>
-    <div class="form-info">
-        <%= f.input :end_date, as: :string ,input_html: {class: "datepicker"}%>
+    <div class="w-50">
+      <%= cl_image_tag @experience.photo.key, crop: :fill, width:800, class: "img-booking" %>
     </div>
-    <%= f.button :submit , class:"primary-button" %>
-  <% end %>
   </div>
 </div>
 
-<%= link_to "Back", experiences_path %>
+<%= link_to "< Back", experiences_path %>
