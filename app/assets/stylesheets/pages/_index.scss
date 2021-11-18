@@ -29,7 +29,8 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 1em;
+  margin: 0;
+  padding: 0;
 }
 
 h2, h3 {
@@ -39,6 +40,11 @@ h2, h3 {
 h3 {
   text-align: center;
   margin: 1em 0;
+}
+
+small {
+  font-size: 12px;
+  font-weight: 200;
 }
 
 .container {

@@ -27,7 +27,10 @@
     <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
     </div>
     <div class="card-info">
+      <div class="d-flex flex-column">
       <h2><%= experience.name %></h2>
+      <small class="f1 m0"><%= experience.address%></small>
+      </div>
       <% unless experience.user.photo.attachment.nil? %>
         <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <% end %>
