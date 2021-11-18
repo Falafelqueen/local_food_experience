@@ -28,6 +28,11 @@ h1 {
   font-family: 'Righteous', cursive;
 }
 
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
 h2, h3 {
   font-family: 'Poppins', sans-serif;
 }
@@ -37,13 +42,16 @@ h3 {
   margin: 1em 0;
 }
 
+small {
+  font-size: 12px;
+  font-weight: 200;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1em;
 }
-
-
 
 .turbolinks-progress-bar {
   background: $brown;
