@@ -8,23 +8,23 @@
   </div>
   <div class="card-holder-map">
     <% @experiences.each do |experience| %>
-      <button class="js-fly" data-lat="<%= experience.latitude %>" data-lng="<%= experience.longitude %>">Fly to this place</button>
-      <%= link_to experience_path(experience) do %>
         <div class="card">
-          <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
-          <div class="card-info">
+          <button class="js-fly" data-lat="<%= experience.latitude %>" data-lng="<%= experience.longitude %>"><%= image_tag "map-marked-solid.svg", class: "map-marked" %></button>
+          <%= link_to experience_path(experience), class: "h-100" do %>
+            <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
+            <div class="card-info">
               <div class="d-flex flex-column">
                 <h2><%= experience.name %></h2>
-                <small class="f1 m0"><%= experience.address%></small>
+                <small ><%= experience.address%></small>
               </div>
-            <% unless experience.user.photo.attachment.nil? %>
-              <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "https://sdchefs.org/wp-content/uploads/2016/07/chef-placeholder.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-          </div>
+              <% unless experience.user.photo.attachment.nil? %>
+                <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "https://sdchefs.org/wp-content/uploads/2016/07/chef-placeholder.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
     <% end %>
   </div>
 </div>

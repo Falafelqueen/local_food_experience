@@ -14,9 +14,21 @@
   <% end %>
 </div>
   <div class="nav-otherside">
-  <div class="nav-block block-4">
-    <%= image_tag "searchicon.svg", alt:"searchicon" %>
-  </div>
+    <div class="search-bar">
+      <%= form_tag experiences_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "What do you fancy?"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary", style: "display:none;" %>
+      <% end %>
+    </div>
+  <button class="search-btn">
+    <div class="nav-block block-4 search-icon">
+      <%= image_tag "searchicon.svg", alt:"searchicon" %>
+    </div>
+  </button>
 
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,15 +71,4 @@
 
     </ul>
   </div>
-</div>
-
-<div class="search-bar">
-  <%= form_tag experiences_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "What experience would you enjoy?"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
 </div>
