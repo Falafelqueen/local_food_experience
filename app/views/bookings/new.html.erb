@@ -7,7 +7,7 @@
   <%= link_to user_path(@experience.user_id)do %>
   <%= @experience.user["name"] %>
   <% end %></p>
-  <p>Price per day: <%= @experience.price_per_hour %></p>
+  <p>Price per day:<span id="price"><%= @experience.price_per_hour %></span></p>
 
   <%= simple_form_for [@experience, @booking] do |f| %>
   <div class="form">
