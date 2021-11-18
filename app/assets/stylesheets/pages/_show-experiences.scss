@@ -1,8 +1,12 @@
 .exp-page {
   h1 {
-    text-align: center;
     margin: 1em 0;
   }
+}
+
+.exp-content {
+  width: 100%;
+  margin: 1em 0;
 }
 
 .exp-image img {
@@ -12,13 +16,12 @@
   border-radius: 25px;
 }
 
-.exp-content {
-  max-width: 800px;
-  margin: 1em auto;
-}
-
 .content {
   display: flex;
+}
+
+.exp-info {
+  margin-bottom: 2em;
 }
 
 .exp-details {
@@ -28,8 +31,11 @@
   width: 315px;
 }
 
+.first-col {
+  padding-right: 2em;
+}
+
 .exp-col {
   display: flex;
   flex-direction: column;
-
 }

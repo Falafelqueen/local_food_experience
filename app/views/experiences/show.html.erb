@@ -6,8 +6,15 @@
     <div class="exp-content">
       <h1><%= @experience.name %></h1>
       <div class="content">
-        <p><%= @experience.description %></p>
+        <div class="first-col">
+          <p class="small-text">Location:</p>
+          <p class="exp-info"><%= @experience.address %></p>
+          <p class="small-text">What this experience is about:</p>
+          <p class="exp-info"><%= @experience.description %></p>
+        </div>
         <div class="exp-col">
+          <p class="small-text">This experience was made by:</p>
+          <p class="exp-info"><%= cl_image_tag @experience.user.photo.key, class: "avatar-large" %> <%= @experience.user["name"] %></p>
           <div class="exp-details">
             <p><%= @experience.price_per_hour %>€ /hour</p>
             <p>Minimum time: <%= @experience.min_time %> day</p>
