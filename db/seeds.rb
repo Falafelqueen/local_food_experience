@@ -5,7 +5,7 @@ Experience.destroy_all
 
 
 
-picture1 = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagX5ygFtGFEdJYYDJUz6yAAsP1UeQmEO6vQ&usqp=CAU')
+picture1 = URI.open('https://ca.slack-edge.com/T02NE0241-U02H31YSNRW-6c5ebaa747f5-512')
 u1 = User.new(name: 'Cyprien',
                    email: "some.email@gmail.com",
                    phone_number: '003348483483',
@@ -16,7 +16,7 @@ u1 = User.new(name: 'Cyprien',
 u1.photo.attach(io: picture1, filename: 'user.png', content_type: 'image/png')
 u1.save!
 
-picture2 = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2xF5w_TEgACMk-06l9zcZCs2W18IAQKNe_Q&usqp=CAU')
+picture2 = URI.open('https://ca.slack-edge.com/T02NE0241-U02H2FE2KKJ-3ef0a62b55c5-512')
 u2 = User.new(name: 'Maxime',
                    email: "max.gmail@hotmail.com",
                    phone_number: '003356473643',
@@ -28,7 +28,7 @@ Nam suscipit mi quis aliquam suscipit. Pellentesque euismod vehicula massa et fi
 u2.photo.attach(io: picture2, filename: 'user.png', content_type: 'image/png')
 u2.save!
 
-picture3 = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-pb-p7MF_saOSiu6JijE1g9DZL7VGZUNFTw&usqp=CAU')
+picture3 = URI.open('https://ca.slack-edge.com/T02NE0241-U02GF9LEYFL-b383a4af4854-512')
 u3 = User.new(name: 'Lucia',
                    email: "lucia.someeamil@hotmail.com",
                    phone_number: '0036453728362',
@@ -47,25 +47,21 @@ meal_types = ["brunch", "unforgetable meal", "picknick", "dinner", "lunch", "fam
 20.times do
 
   file = URI.open("https://images.unsplash.com/photo-1562033938-4c09d42b1c3f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
-  exp = Experience.new(name: "My Diner below the stars", description: "Ut dictum justo lobortis erat consequat, in facilisis felis luctus. Curabitur mollis imperdiet elit sed pulvinar.
-    Nam suscipit mi quis aliquam suscipit.", address: Faker::Address.city, price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
+  exp = Experience.new(name: "My Diner below the stars", description: "Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays. Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays.", address: Faker::Address.city, price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
   exp.photo.attach(io: file, filename: 'wii.png', content_type: 'image/png')
   exp.save!
 
   file1 = URI.open('https://images.unsplash.com/photo-1471967183320-ee018f6e114a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2071&q=80')
-  exp1 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Ut dictum justo lobortis erat consequat, in facilisis felis luctus. Curabitur mollis imperdiet elit sed pulvinar.
-  Nam suscipit mi quis aliquam suscipit.", address: Faker::Address.city, price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
+  exp1 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays. Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays.", address: Faker::Address.city, price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
   exp1.photo.attach(io: file1, filename: 'wii1.png', content_type: 'image/png')
   exp1.save!
 
   file2 = URI.open("https://source.unsplash.com/1600x900/?#{search_words.sample}")
-  exp2 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Ut dictum justo lobortis erat consequat, in facilisis felis luctus. Curabitur mollis imperdiet elit sed pulvinar.
-  Nam suscipit mi quis aliquam suscipit.", address: Faker::Address.city, price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
+  exp2 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays. Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays.", address: Faker::Address.city, price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
   exp2.photo.attach(io: file2, filename: 'wii2.png', content_type: 'image/png')
   exp2.save!
   file3 = URI.open("https://source.unsplash.com/1600x900/?#{search_words.sample}")
-  exp3 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Ut dictum justo lobortis erat consequat, in facilisis felis luctus. Curabitur mollis imperdiet elit sed pulvinar.
-  Nam suscipit mi quis aliquam suscipit.", address: Faker::Address.city,  price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
+  exp3 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays. Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays.", address: Faker::Address.city,  price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
   exp3.photo.attach(io: file3, filename: 'wii3.png', content_type: 'image/png')
   exp3.save!
 end
