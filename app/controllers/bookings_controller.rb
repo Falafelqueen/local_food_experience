@@ -20,6 +20,10 @@ class BookingsController < ApplicationController
 
   private
 
+  def total_price
+    self.total_price = (end_date - start_date) / price_per_day
+  end
+
   def params_booking
     params.require(:booking).permit(:start_date, :end_date)
   end
