@@ -1,4 +1,5 @@
 
+
 <%= @experience.name %>
 <%= @experience.price_per_hour %>
 <p>From:</p>
@@ -6,12 +7,17 @@
 <p>To:</p>
 <%= @booking.end_date %>
 <p>Booking status:</p>
-<% if @booking.status = 0 %>
+<% if @booking.active? %>
 <h4>pending</h4>
 <p>Waiting for <%= @experience.user["name"] %> to confirm your booking</p>
 <% else %>
 <h4>confirmed</h4>
-<p><%= @experience.user["name"] %> accepted the booking</p>
+<p><%= @experience.user["name"] %> confirmed your booking</p>
 <% end %>
-
+<% if @experience.user == current_user %>
+  <% if @booking.active? %>
+  <%= link_to "Confirm booking", change_status_booking_path(@booking, status: "archived"), method: :patch, class:"btn" %>
+  <%= link_to "Delete booking", booking_path(@booking), method: :delete, class:"btn" %>
+  <% end %>
+<% end %>
 <%= @booking.total_price %>

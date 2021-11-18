@@ -1,0 +1,102 @@
+<div class="container">
+  <h2>My bookings</h2>
+  <div class="card-holder">
+    <% @my_requested_bookings.where(status: :archived).order("start_date").each do |booking| %>
+      <div class="card-full">
+          <%= link_to booking_path(booking) do %>
+       <div class="<%= booking.status == "archived" && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
+          <div class="card">
+            <div class="card-image" style="background-image: url(<%= cl_image_path booking.experience.photo.key%>)"></div>
+            <div class="card-info">
+              <h2><%= booking.experience["name"] %></h2>
+              <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+            <div class="booking-info">
+            <p>
+            <%= booking.start_date %> - <%= booking.end_date  %>
+            </p>
+            <p><%= booking.total_price %> € </p>
+            </div>
+          </div>
+          <% end %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <h2> Others booked</h2>
+  <div class="card-holder">
+    <% @my_received_bookings.order("status").each do |booking| %>
+      <div class="card-full">
+          <%= link_to booking_path(booking) do %>
+          <div class="<%= booking.status == "archived" ? 'pending' : "confirmed"%>">
+          <div class='card'>
+            <div class="card-image" style="background-image: url(<%= cl_image_path booking.experience.photo.key%>)"></div>
+            <div class="card-info">
+              <h2><%= booking.experience["name"] %></h2>
+              <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+            <div class="booking-info">
+            <p>
+            <%= booking.start_date %> - <%= booking.end_date  %>
+            </p>
+            <p><%= booking.total_price %> € </p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Waiting to be confirmed</h2>
+  <div class="card-holder">
+    <% @my_requested_bookings.where(status: :active).order("start_date").each do |booking| %>
+      <div class="card-full">
+          <%= link_to booking_path(booking) do %>
+       <div class="<%= booking.status == "active" ? 'pending' : "archived"%>">
+          <div class="card">
+            <div class="card-image" style="background-image: url(<%= cl_image_path booking.experience.photo.key%>)"></div>
+            <div class="card-info">
+              <h2><%= booking.experience["name"] %></h2>
+              <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+            <div class="booking-info">
+            <p>
+            <%= booking.start_date %> - <%= booking.end_date  %>
+            </p>
+            <p><%= booking.total_price %> € </p>
+            </div>
+          </div>
+          <% end %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%# copied from profile#show- card holder etc.. %>
+<div class="container">
+  <h2>My experiences</h2>
+  <div class="card-holder">
+    <% @my_experiences.each do |experience| %>
+      <div class="card-full">
+          <%= link_to experience_path(experience) do %>
+          <div class="card">
+            <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
+            <div class="card-info">
+              <h2><%= experience.name %></h2>
+              <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+          </div>
+          <% end %>
+          <div class="edit-delete">
+            <%= link_to "Edit", edit_experience_path(experience) %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

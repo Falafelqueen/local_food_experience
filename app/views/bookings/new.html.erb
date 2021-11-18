@@ -1,6 +1,7 @@
+
 <div class="container section-bottom">
   <small>New booking</small>
-
+  
   <div class="d-flex">
     <div class="w-50">
       <div class="d-flex justify-content-between align-items-center align-content-center">
@@ -11,7 +12,7 @@
       </div>
 
       <div class="d-flex flex-column">
-        <h2><%= @experience.price_per_hour %>€</h2>
+        <h2 id="price"><%= @experience.price_per_hour %>€</h2>
         <p>per day</p>
       </div>
 
@@ -31,6 +32,7 @@
       <%= cl_image_tag @experience.photo.key, crop: :fill, width:800, class: "img-booking" %>
     </div>
   </div>
+  <div id="price-preview"></div>
 </div>
 
 <%= link_to "< Back", experiences_path %>
