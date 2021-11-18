@@ -72,7 +72,6 @@ const initMapbox = () => {
           Number.parseFloat(event.currentTarget.dataset.lat)
         ]
         //move map focus to wanted coordinates
-        console.log(coordinates);
         map.flyTo({
           center: coordinates,
           zoom: 10

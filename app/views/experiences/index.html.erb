@@ -9,7 +9,7 @@
   <div class="card-holder-map">
     <% @experiences.each do |experience| %>
         <div class="card">
-          <button class="js-fly" data-lat="<%= experience.latitude %>" data-lng="<%= experience.longitude %>"><i class="fas fa-map-marked"></i></button>
+          <button class="js-fly" data-lat="<%= experience.latitude %>" data-lng="<%= experience.longitude %>"><%= image_tag "map-marked-solid.svg", class: "map-marked" %></button>
           <%= link_to experience_path(experience), class: "h-100" do %>
             <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
             <div class="card-info">
