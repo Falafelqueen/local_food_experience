@@ -22,7 +22,7 @@
 <%  @my_pending_bookings.each do |booking|%>
 <%= booking.experience["name"] %>
 <%= booking.status %>
-
+<%= link_to "Delete", booking, remote: true, method: :delete %>
 <% end %>
 <div class="container">
   <h2>My experiences</h2>

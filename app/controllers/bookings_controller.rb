@@ -22,6 +22,9 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params)
+  end
   # def destroy
 
   # end

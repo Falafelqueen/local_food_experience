@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     end
     @my_experiences = Experience.where(user: params[:id])
     @my_pending_bookings = Booking.where(status: :active, experience_id: [@my_experiences])
-raise
+
   end
 end
 

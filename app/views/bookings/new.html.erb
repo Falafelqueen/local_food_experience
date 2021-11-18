@@ -12,10 +12,10 @@
   <%= simple_form_for [@experience, @booking] do |f| %>
   <div class="form">
     <div class="form-info">
-        <%= f.input :start_date, as: :date %>
+        <%= f.input :start_date, as: :string , input_html: {class: "datepicker"}%>
     </div>
     <div class="form-info">
-        <%= f.input :end_date, as: :date %>
+        <%= f.input :end_date, as: :string ,input_html: {class: "datepicker"}%>
     </div>
     <%= f.button :submit , class:"primary-button" %>
   <% end %>
