@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :experiences, only: %i[index new create show edit update] do
     resources :bookings, only: %i[new create]
   end
-  resources :bookings, only: %i[show]
+  resources :bookings, only: [:show, :destroy, :update]
+  resource :dashboard, only: [:show]
 end

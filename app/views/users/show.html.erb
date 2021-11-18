@@ -15,13 +15,15 @@
           </div>
     </div>
     <div class="user-image">
-
         <%= cl_image_tag @user.photo.key %>
-
     </div>
   </div>
 </div>
-
+<%  @my_pending_bookings.each do |booking|%>
+<%= booking.experience["name"] %>
+<%= booking.status %>
+<%= link_to "Delete", booking, remote: true, method: :delete %>
+<% end %>
 <div class="container">
   <h2>My experiences</h2>
   <div class="card-holder">

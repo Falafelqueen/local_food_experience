@@ -1,8 +1,25 @@
+<div class="container">
+  <h2>New booking</h2>
+  <%= link_to experience_path(@experience) do %>
+  <h4><%= @experience.name %></h4>
+  <% end %>
+  <p>from:
+  <%= link_to user_path(@experience.user_id)do %>
+  <%= @experience.user["name"] %>
+  <% end %></p>
+  <p>Price per day: <%= @experience.price_per_hour %></p>
 
-<h2>New booking</h2>
+  <%= simple_form_for [@experience, @booking] do |f| %>
+  <div class="form">
+    <div class="form-info">
+        <%= f.input :start_date, as: :string , input_html: {class: "datepicker"}%>
+    </div>
+    <div class="form-info">
+        <%= f.input :end_date, as: :string ,input_html: {class: "datepicker"}%>
+    </div>
+    <%= f.button :submit , class:"primary-button" %>
+  <% end %>
+  </div>
+</div>
 
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :min_time %><br />
-  <%= f.input :max_time %><br />
-  <%= f.button :submit %>
-<% end %>
+<%= link_to "Back", experiences_path %>
