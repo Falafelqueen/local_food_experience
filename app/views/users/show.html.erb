@@ -26,16 +26,20 @@
   <h2>My experiences</h2>
   <div class="card-holder">
     <% @user.experiences.each do |experience| %>
-<%= link_to experience_path(experience) do %>
-  <div class="card">
-    <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)">
-    </div>
-    <div class="card-info">
-      <h2><%= experience.name %></h2>
-        <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    </div>
-  </div>
-<% end %>
+      <div class="card-full">
+          <%= link_to experience_path(experience) do %>
+          <div class="card">
+            <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
+            <div class="card-info">
+              <h2><%= experience.name %></h2>
+              <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+          </div>
+          <% end %>
+          <div class="edit-delete">
+            <%= link_to "Edit", edit_experience_path(experience) %>
+          </div>
+      </div>
     <% end %>
   </div>
 </div>
