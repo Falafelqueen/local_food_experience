@@ -15,17 +15,6 @@
   }
 }
 
-.primary-button {
-  background-color: $brown;
-  border-radius: 50px;
-  padding: 0.5em 2em;
-  color: $cream;
-  &:hover {
-    color: $cream;
-    background-color: $light-brown
-  }
-}
-
 .section-bottom{
   border-top: 3px solid $brown;
   margin-top:15px;
@@ -46,4 +35,11 @@
 
 .form-inputs {
   width: 50%;
+}
+
+.create-container {
+  width: 100%;
+  margin:2em 0;
+  padding: 2em 0;
+  border-top: 3px solid $brown;
 }
