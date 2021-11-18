@@ -54,3 +54,8 @@ h3 {
   font-size: 12px;
   letter-spacing: 0.5px;
 }
+
+.grid-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

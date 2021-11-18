@@ -1,29 +1,33 @@
-<div class="login-container">
+<div class="create-container">
   <h1>Let's start create your experience</h1>
-
 
     <%= simple_form_for @experience do |f| %>
       <div class="form">
         <div class="form-info">
-          <%= f.input :name, required: true %>
+          <%= f.input :name, label: 'Your experience name:', required: true %>
         </div>
         <div class="form-info">
-          <%= f.input :address, required: true %>
+          <%= f.input :description, label: 'Tell us more about the experience:', required: true, as: :text %>
+        </div>
+        <div class="form-info">
+          <%= f.input :address, label: 'Where it gonna takes place:', required: true %>
+        </div>
+        <div class="form-info">
+          <%= f.input :price_per_hour, label: 'Your price per hour', required: true %>
+        </div>
+        <div class="form-info">
+          <p class="small-text">How much time for your experience?</p>
+          <div class="grid-2">
+            <div class="form-info">
+              <%= f.input :min_time, label: 'Minimum', collection: 1..60, required: true %>
+            </div>
+            <div class="form-info">
+              <%= f.input :max_time, label: 'Maximum', collection: 1..60, required: true %>
+            </div>
+          </div>
         </div>
         <div class="form-info">
           <%= f.input :photo, as: :file, required: true %>
-        </div>
-        <div class="form-info">
-          <%= f.input :description, required: true %>
-        </div>
-        <div class="form-info">
-          <%= f.input :price_per_hour, required: true %>
-        </div>
-        <div class="form-info">
-          <%= f.input :min_time, required: true %>
-        </div>
-        <div class="form-info">
-          <%= f.input :max_time, required: true %>
         </div>
     </div>
       <%= f.button :submit, "Create your experience", class: "primary-button"  %>
