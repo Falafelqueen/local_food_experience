@@ -62,8 +62,38 @@
 .search-btn {
   border: none;
   background: none;
+
+
+
+
 }
 
 .search-bar {
   padding-left: 20px;
+   width: 240px;
+
+  input {
+    // transition: width 2.5s ease-in-out;
+    width: 0;
+    opacity: 0;
+  }
+
+  &.active input {
+    animation: expand 1s forwards;
+  }
+  &.inactive input {
+    animation: expand 1s backwards;
+  }
+}
+
+@keyframes expand {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: 240px;
+  }
 }
