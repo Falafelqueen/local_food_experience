@@ -1,0 +1,35 @@
+.container{
+  padding:15px;
+}
+.booking-details{
+  display:flex;
+  margin:15px 0px;
+  justify-content:space-between;
+}
+
+.booking-image{
+  padding:20px;
+  img{
+    border-radius:50%;
+    height:250px;
+    width:250px;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid $brown;
+}
+}
+.user-info-header{
+  color: $light-brown;
+  font-size:14px;
+  text-align:end;
+}
+.booking-info{
+  padding-right: 16px;
+  width:60%;
+}
+
+
+.booking-info-element{
+  border-top:3px solid $brown;
+  padding: 16px 0px;
+}

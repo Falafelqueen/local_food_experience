@@ -4,3 +4,12 @@
   z-index: 2;
   border-radius: 25px;
 }
+
+.booking-info{
+  display:flex;
+  justify-content: space-between;
+  margin:8px 16px;
+  align-items:center;
+   p{
+     font-size:16px;   }
+}
