@@ -26,6 +26,7 @@
   height:250px;
   border-radius:25px;
   color:$cream;
+  position: relative;
   h2{
     font-family:$headers-font;
     font-size:20px;
@@ -75,4 +76,16 @@
   position: sticky;
   top: 0;
   left: 0;
+}
+
+.js-fly {
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 33px;
+  color: $brown;
+  background: white;
+  position: absolute;
+  top: 5%;
+  left: 5%;
 }
