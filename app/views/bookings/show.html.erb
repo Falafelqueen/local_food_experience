@@ -1,0 +1,17 @@
+
+<%= @experience.name %>
+<%= @experience.price_per_hour %>
+<p>From:</p>
+<%= @booking.start_date %>
+<p>To:</p>
+<%= @booking.end_date %>
+<p>Booking status:</p>
+<% if @booking.status = 0 %>
+<h4>pending</h4>
+<p>Waiting for <%= @experience.user["name"] %> to confirm your booking</p>
+<% else %>
+<h4>confirmed</h4>
+<p><%= @experience.user["name"] %> accepted the booking</p>
+<% end %>
+
+<%= @booking.total_price %>
