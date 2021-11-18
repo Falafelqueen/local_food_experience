@@ -57,6 +57,30 @@ const initMapbox = () => {
         mapboxgl: mapboxgl,
       })
     );
+
+    // Add fly to feature to map
+
+    //select all fly buttons
+    const flyBtns = document.querySelectorAll(".js-fly");
+
+    //add event listener on click for each button
+    flyBtns.forEach((flyBtn) => {
+      flyBtn.addEventListener("click", (event) => {
+        //retrieve coordinates from html
+        const coordinates = [
+          Number.parseFloat(event.currentTarget.dataset.lng),
+          Number.parseFloat(event.currentTarget.dataset.lat)
+        ]
+        //move map focus to wanted coordinates
+        console.log(coordinates);
+        map.flyTo({
+          center: coordinates,
+          zoom: 10
+        });
+      })
+    })
+
+
   }
 };
 
