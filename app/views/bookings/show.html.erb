@@ -11,8 +11,12 @@
       </div>
 
       <div class="booking-show">
-        <h2>Congratulations!</h2>
-        <p> You just booked your Experience,</p>
+        <% if @booking.active? %>
+            <h2>Booking request sent.</h2>
+          <% else %>
+          <h2>Congratulations!</h2>
+          <p>Your booking has just been made.</p>
+        <% end %>
         <div class="d-flex justify-content-between display-row">
           <p>From: <%= @booking.start_date %></p>
           <p>To: <%= @booking.end_date %></p>
@@ -39,11 +43,11 @@
           <h2><%= @booking.total_price%>€</h2>
         </div>
 
-        <div class="display-row">
+        <div class="display-row mt-4">
           <% if @experience.user == current_user %>
             <% if @booking.active? %>
-              <%= link_to "Confirm booking", change_status_booking_path(@booking, status: "archived"), method: :patch, class:"btn" %>
-              <%= link_to "Delete booking", booking_path(@booking), method: :delete, class:"btn" %>
+              <%= link_to "Confirm booking", change_status_booking_path(@booking, status: "archived"), method: :patch, class:"btn primary-button" %>
+              <%= link_to "Delete booking", booking_path(@booking), method: :delete, class:"btn primary-button delete-button" %>
             <% end %>
           <% end %>
         </div>
