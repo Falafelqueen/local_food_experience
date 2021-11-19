@@ -3,6 +3,9 @@
   <div class="container-bookings-requested">
     <h2 class="booking-type">My bookings</h2>
     <div class="card-holder">
+      <% if @my_current_bookings.empty? %>
+      <p>No bookings to show yet.</p>
+      <% else %>
       <% @my_current_bookings.each do |booking| %>
       <div class="card-full">
         <div class="<%= booking.status == "archived" && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
@@ -28,6 +31,7 @@
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
     </div>
   </div>
@@ -35,6 +39,9 @@
   <div class="container-bookings-received">
     <h2 class="booking-type"> Others booked</h2>
     <div class="card-holder">
+      <% if @my_received_bookings.empty? %>
+      <p>No bookings to show yet.</p>
+      <% else %>
       <% @my_received_bookings.order("status").each do |booking| %>
         <div class="card-full">
         <div class="<%= booking.archived? && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
@@ -43,9 +50,9 @@
               <div class="card-info-booking">
                 <h2><%= booking.experience["name"] %></h2>
                 <% if booking.archived? %>
-                 <p>confirmed</p>
+                 <p class="confirmed">confirmed</p>
                  <% else %>
-                  <p>pending</p>
+                  <p class="pending">pending</p>
                 <% end %>
               </div>
               <div class="booking-info-card">
@@ -71,12 +78,16 @@
 
 
       <% end %>
+      <% end  %>
     </div>
   </div>
 
   <div class="container-bookings-waiting">
     <h2 class="booking-type">My pending bookings</h2>
     <div class="card-holder">
+      <% if @my_requested_bookings.empty? %>
+      <p>No bookings to show yet.</p>
+      <% else %>
       <% @my_requested_bookings.where(status: :active).order("start_date").each do |booking| %>
         <div class="card-full">
         <div class="<%= booking.status == "archived" && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
@@ -103,12 +114,16 @@
         </div>
       </div>
       <% end %>
+      <% end  %>
     </div>
   </div>
   <%# copied from profile#show- card holder etc.. %>
   <div class="container-bookings-old">
     <h2 class="booking-type">Past experiences</h2>
     <div class="card-holder">
+      <% if @my_current_bookings.empty? %>
+      <p>No bookings to show yet.</p>
+      <% else %>
       <% @my_old_bookings.each do |booking| %>
         <div class="card-full">
         <div class="<%= booking.status == "archived" && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
@@ -135,6 +150,7 @@
         </div>
       </div>
       <% end %>
+      <% end  %>
     </div>
   </div>
 </div>
