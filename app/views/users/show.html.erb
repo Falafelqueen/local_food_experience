@@ -19,14 +19,12 @@
     </div>
   </div>
 </div>
-<%  @my_pending_bookings.each do |booking|%>
-<%= booking.experience["name"] %>
-<%= booking.status %>
-<%= link_to "Delete", booking, remote: true, method: :delete %>
-<% end %>
 <div class="container">
   <h2>My experiences</h2>
   <div class="card-holder">
+      <% if @user.experiences.empty? %>
+      <p>No experiences to show yet.</p>
+      <% else %>
     <% @user.experiences.each do |experience| %>
       <div class="card-full">
           <%= link_to experience_path(experience) do %>
@@ -43,5 +41,6 @@
           </div>
       </div>
     <% end %>
+    <% end  %>
   </div>
 </div>
