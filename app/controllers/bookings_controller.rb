@@ -26,9 +26,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
      if params[:status].present?
       @booking.update(status: params[:status])
-    end
+     end
     redirect_to booking_path(@booking)
   end
+
   def destroy
      @booking = Booking.find(params[:id])
     @booking.destroy
