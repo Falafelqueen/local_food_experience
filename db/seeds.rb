@@ -54,26 +54,28 @@ counter = 0
   exp.photo.attach(io: file, filename: 'wii.png', content_type: 'image/png')
   exp.save!
   counter += 1
-  puts "Created #{counter 'experience'.pluralize(counter)} "
+  puts "Created #{counter} experience"
 
   file1 = URI.open('https://images.unsplash.com/photo-1471967183320-ee018f6e114a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2071&q=80')
   exp1 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays. Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays.", address: CITIES.sample, price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
   exp1.photo.attach(io: file1, filename: 'wii1.png', content_type: 'image/png')
   exp1.save!
-  puts exp1
-  puts "Created #{counter 'experience'.pluralize(counter)} "
+  counter += 1
+  puts "Created #{counter} experience"
 
   file2 = URI.open("https://source.unsplash.com/1600x900/?#{search_words.sample}")
   exp2 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays. Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays.", address: CITIES.sample, price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
   exp2.photo.attach(io: file2, filename: 'wii2.png', content_type: 'image/png')
   exp2.save!
-  puts "Created #{counter 'experience'.pluralize(counter)} "
+  counter += 1
+  puts "Created #{counter} experience"
 
   file3 = URI.open("https://source.unsplash.com/1600x900/?#{search_words.sample}")
   exp3 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}", description: "Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays. Full-service restaurants include casual to formal restaurants that often, but not always, prepare foods from scratch. These operations offer every style of foodservice from simple home-style cooking to sophisticated multi-course meals with elaborate table service. Many aspiring chefs choose these types of operations because they are more challenging and provide an outlet for expressing creativity in the kitchen. Hours of service in full-service restaurants are early to late depending on whether they service breakfast, lunch, or dinner. Most are open 6 or 7 days and week and many are open on holidays.", address: CITIES.sample,  price_per_hour: (5..100).to_a.sample, min_time: (1..10).to_a.sample, max_time: (1..24).to_a.sample, user_id: (1..3).to_a.sample)
   exp3.photo.attach(io: file3, filename: 'wii3.png', content_type: 'image/png')
   exp3.save!
-  puts "Created #{counter 'experience'.pluralize(counter)} "
+  counter += 1
+  puts "Created #{counter} experience"
 end
 
 # Category.create!(name: "Diner")
