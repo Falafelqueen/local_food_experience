@@ -1,100 +1,137 @@
-<div class="container">
-  <h2>My bookings</h2>
-  <div class="card-holder">
-    <% @my_requested_bookings.where(status: :archived).order("start_date").each do |booking| %>
-      <div class="card-full">
-          <%= link_to booking_path(booking) do %>
-       <div class="<%= booking.status == "archived" && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
-          <div class="card">
-            <div class="card-image" style="background-image: url(<%= cl_image_path booking.experience.photo.key%>)"></div>
-            <div class="card-info">
-              <h2><%= booking.experience["name"] %></h2>
-              <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            </div>
-            <div class="booking-info">
-            <p><%= booking.start_date %> - <%= booking.end_date  %></p>
-            <p><%= booking.total_price %> € </p>
-            </div>
-          </div>
-          <% end %>
-      </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<div class="container-dashboard">
 
-<div class="container">
-  <h2> Others booked</h2>
-  <div class="card-holder">
-    <% @my_received_bookings.order("status").each do |booking| %>
+  <div class="container-bookings-requested">
+    <h2 class="booking-type">My bookings</h2>
+    <div class="card-holder">
+      <% @my_current_bookings.each do |booking| %>
       <div class="card-full">
-          <%= link_to booking_path(booking) do %>
-          <div class="<%= booking.status == "archived" ? 'pending' : "confirmed"%>">
-          <div class='card'>
-            <div class="card-image" style="background-image: url(<%= cl_image_path booking.experience.photo.key%>)"></div>
-            <div class="card-info">
-              <h2><%= booking.experience["name"] %></h2>
-              <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            </div>
-            <div class="booking-info">
-            <p>
-            <%= booking.start_date %> - <%= booking.end_date  %>
-            </p>
-            <p><%= booking.total_price %> € </p>
+        <div class="<%= booking.status == "archived" && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
+          <div class="card-booking">
+            <div class="card-booking-inner">
+              <div class="card-info-booking">
+                <h2><%= booking.experience["name"] %></h2>
+                <div class="d-flex justify-content-end align-items-center card-info-booking-user">
+                  <p><small>with <%= booking.experience.user.name %></small></p>
+                  <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                </div>
+              </div>
+              <div class="booking-info-card">
+                <p><%= booking.start_date %> - <%= booking.end_date  %></p>
+                <p><%= booking.total_price %> € </p>
+              </div>
+              <div class="booking-card-buttons">
+                <%= link_to booking_path(booking) do %>
+                  <button class="primary-button">See booking</button>
+                <% end %>
+              </div>
             </div>
           </div>
-          <% end %>
         </div>
+      </div>
+    <% end %>
     </div>
-    <% end %>
   </div>
-</div>
 
-<div class="container">
-  <h2>Waiting to be confirmed</h2>
-  <div class="card-holder">
-    <% @my_requested_bookings.where(status: :active).order("start_date").each do |booking| %>
-      <div class="card-full">
-          <%= link_to booking_path(booking) do %>
-       <div class="<%= booking.status == "active" ? 'pending' : "archived"%>">
-          <div class="card">
-            <div class="card-image" style="background-image: url(<%= cl_image_path booking.experience.photo.key%>)"></div>
-            <div class="card-info">
-              <h2><%= booking.experience["name"] %></h2>
-              <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            </div>
-            <div class="booking-info">
-            <p>
-            <%= booking.start_date %> - <%= booking.end_date  %>
-            </p>
-            <p><%= booking.total_price %> € </p>
+  <div class="container-bookings-received">
+    <h2 class="booking-type"> Others booked</h2>
+    <div class="card-holder">
+      <% @my_received_bookings.order("status").each do |booking| %>
+        <div class="card-full">
+        <div class="<%= booking.archived? && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
+          <div class="card-booking">
+            <div class="card-booking-inner">
+              <div class="card-info-booking">
+                <h2><%= booking.experience["name"] %></h2>
+                <% if booking.archived? %>
+                 <p>confirmed</p>
+                 <% else %>
+                  <p>pending</p>
+                <% end %>
+              </div>
+              <div class="booking-info-card">
+                <p><%= booking.start_date %> - <%= booking.end_date  %></p>
+                <p><%= booking.total_price %> € </p>
+              </div>
+              <div class="booking-card-buttons">
+              <% if booking.active? %>
+               <%= link_to "Confirm booking", change_status_booking_path(booking, status: "archived"), method: :patch, class:"primary-button green" %>
+               <% end %>
+                <%= link_to booking_path(booking) do %>
+                  <button class="primary-button">See booking</button>
+                <% end %>
+              </div>
             </div>
           </div>
-          <% end %>
+        </div>
       </div>
-      </div>
-    <% end %>
+
+
+
+      <% end %>
+    </div>
   </div>
-</div>
-<%# copied from profile#show- card holder etc.. %>
-<div class="container">
-  <h2>My experiences</h2>
-  <div class="card-holder">
-    <% @my_experiences.each do |experience| %>
-      <div class="card-full">
-          <%= link_to experience_path(experience) do %>
-          <div class="card">
-            <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
-            <div class="card-info">
-              <h2><%= experience.name %></h2>
-              <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+  <div class="container-bookings-waiting">
+    <h2 class="booking-type">My pending bookings</h2>
+    <div class="card-holder">
+      <% @my_requested_bookings.where(status: :active).order("start_date").each do |booking| %>
+        <div class="card-full">
+        <div class="<%= booking.status == "archived" && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
+          <div class="card-booking">
+            <div class="card-booking-inner">
+              <div class="card-info-booking">
+                <h2><%= booking.experience["name"] %></h2>
+                <div class="d-flex justify-content-end align-items-center card-info-booking-user">
+                  <p><small>with <%= booking.experience.user.name %></small></p>
+                  <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                </div>
+              </div>
+              <div class="booking-info-card">
+                <p><%= booking.start_date %> - <%= booking.end_date  %></p>
+                <p><%= booking.total_price %> € </p>
+              </div>
+              <div class="booking-card-buttons">
+                <%= link_to booking_path(booking) do %>
+                  <button class="primary-button">See booking</button>
+                <% end %>
+              </div>
             </div>
           </div>
-          <% end %>
-          <div class="edit-delete">
-            <%= link_to "Edit", edit_experience_path(experience) %>
-          </div>
+        </div>
       </div>
-    <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%# copied from profile#show- card holder etc.. %>
+  <div class="container-bookings-old">
+    <h2 class="booking-type">Past experiences</h2>
+    <div class="card-holder">
+      <% @my_old_bookings.each do |booking| %>
+        <div class="card-full">
+        <div class="<%= booking.status == "archived" && booking.start_date.before?(Date.today) ? "not-active" : "active"%>">
+          <div class="card-booking">
+            <div class="card-booking-inner">
+              <div class="card-info-booking">
+                <h2><%= booking.experience["name"] %></h2>
+                <div class="d-flex justify-content-end align-items-center card-info-booking-user">
+                  <p><small>with <%= booking.experience.user.name %></small></p>
+                  <%= cl_image_tag booking.experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                </div>
+              </div>
+              <div class="booking-info-card">
+                <p><%= booking.start_date %> - <%= booking.end_date  %></p>
+                <p><%= booking.total_price %> € </p>
+              </div>
+              <div class="booking-card-buttons">
+                <%= link_to booking_path(booking) do %>
+                  <button class="primary-button">See booking</button>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
