@@ -33,3 +33,31 @@
   border-top:3px solid $brown;
   padding: 16px 0px;
 }
+
+.booking-show {
+  border:3px solid $brown;
+  border-radius: 25px;
+  padding: 1em;
+}
+
+.booking-status {
+  padding: 1em;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.bg-green{
+  background-color: rgb(179, 243, 179);
+}
+
+.bg-orange{
+  background-color: rgb(245, 208, 194);
+}
+
+.confirmed {
+  color: green;
+}
+
+.pending {
+  color: coral;
+}

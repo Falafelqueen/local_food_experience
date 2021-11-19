@@ -1,50 +1,59 @@
-<div class="container section-bottom">
+<div class="container">
   <small>Booking</small>
 
   <div class="d-flex">
-    <div class="w-50">
-      <div class="d-flex justify-content-between align-items-center align-content-center">
+    <div class="w-50 d-flex justify-content-between flex-column">
+      <div class="d-flex justify-content-between align-items-center align-content-center mb-4">
         <h1><%= link_to @experience.name, experience_path(@experience) %></h1>
         <div class="d-flex">
-        <p>with <%= @experience.user["name"] %> <%= cl_image_tag @experience.user.photo.key, class: "avatar-large" %></p>
+          <p>with <%= @experience.user["name"] %> <%= cl_image_tag @experience.user.photo.key, class: "avatar-large" %></p>
         </div>
       </div>
 
-      <div class="d-flex flex-column">
-        <h2><%= @experience.price_per_hour %>€</h2>
-        <p>per day</p>
+      <div class="booking-show">
+        <h2>Congratulations!</h2>
+        <p> You just booked your Experience,</p>
+        <div class="d-flex justify-content-between display-row">
+          <p>From: <%= @booking.start_date %></p>
+          <p>To: <%= @booking.end_date %></p>
+        </div>
+
+        <% if @booking.active? %>
+          <div class="display-row booking-status bg-orange">
+            <p>Booking status:
+              <span class="pending">pending</span>
+            </p>
+            <span><small>Waiting for <%= @experience.user["name"] %> to confirm your booking</small></span>
+          </div>
+        <% else %>
+          <div class="display-row booking-status bg-orange">
+            <p>Booking status:
+              <span class="confirmed">confirmed</span>
+            <span><%= @experience.user["name"] %> confirmed your booking</span>
+          </div>
+        <% end %>
+
+        <div class="d-flex flex-column justify-content-end mt-4">
+          <span>Total</span>
+          <h2><%= @booking.total_price%>€</h2>
+        </div>
+
+        <div class="display-row">
+          <% if @experience.user == current_user %>
+            <% if @booking.active? %>
+              <%= link_to "Confirm booking", change_status_booking_path(@booking, status: "archived"), method: :patch, class:"btn" %>
+              <%= link_to "Delete booking", booking_path(@booking), method: :delete, class:"btn" %>
+            <% end %>
+          <% end %>
+        </div>
+
       </div>
 
-<div class="d-flex justify-content-between display-row">
-<p>From:
-<%= @booking.start_date %> </p>
-<p>To: <%= @booking.end_date %></p>
-</div>
-<div class="display-row">
-<p>Booking status:
-<% if @booking.active? %>
-<h4>pending</h4></p>
-<p><small>Waiting for <%= @experience.user["name"] %> to confirm your booking</small></p>
-<% else %>
-<h4>confirmed</h4>
-<p><%= @experience.user["name"] %> confirmed your booking</p>
-<% end %>
-</div>
-<div class="display-row">
-<% if @experience.user == current_user %>
-  <% if @booking.active? %>
-  <%= link_to "Confirm booking", change_status_booking_path(@booking, status: "archived"), method: :patch, class:"btn" %>
-  <%= link_to "Delete booking", booking_path(@booking), method: :delete, class:"btn" %>
-  <% end %>
-<% end %>
-</div>
     </div>
+
     <div class="w-50">
       <%= cl_image_tag @experience.photo.key, crop: :fill, width:800, class: "img-booking" %>
     </div>
   </div>
- <div class="d-flex flex-column justify-content-end">
-        <p>Total</p>
-        <h2><%= @booking.total_price%>€</h2>
-      </div>
+
 </div>
