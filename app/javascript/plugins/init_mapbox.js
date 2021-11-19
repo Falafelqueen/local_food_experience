@@ -51,12 +51,12 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
 
     // adds search feature to map
-    map.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-      })
-    );
+    // map.addControl(
+    //   new MapboxGeocoder({
+    //     accessToken: mapboxgl.accessToken,
+    //     mapboxgl: mapboxgl,
+    //   })
+    // );
 
     // Add fly to feature to map
 
