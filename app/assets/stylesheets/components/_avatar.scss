@@ -10,7 +10,8 @@
   height: 56px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid rgba(44, 29, 2,  0.5);
+  border: 3px solid $brown;
+  background-color: $brown;
 }
 .avatar-bordered {
   width: 40px;

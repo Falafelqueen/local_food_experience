@@ -26,10 +26,11 @@
             <span><small>Waiting for <%= @experience.user["name"] %> to confirm your booking</small></span>
           </div>
         <% else %>
-          <div class="display-row booking-status bg-orange">
+          <div class="display-row booking-status bg-green">
             <p>Booking status:
               <span class="confirmed">confirmed</span>
-            <span><%= @experience.user["name"] %> confirmed your booking</span>
+              </p>
+            <span><small><%= @experience.user["name"] %> confirmed your booking</small></span>
           </div>
         <% end %>
 
