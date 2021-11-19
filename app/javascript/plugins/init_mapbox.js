@@ -50,6 +50,10 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
 
+    window.addEventListener('load', () => {
+      map.resize();
+      fitMapToMarkers(map, markers);
+    })
     // adds search feature to map
     // map.addControl(
     //   new MapboxGeocoder({
