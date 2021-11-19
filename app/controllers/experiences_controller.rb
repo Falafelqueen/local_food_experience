@@ -35,7 +35,7 @@ class ExperiencesController < ApplicationController
     @experience.user = current_user
     if @experience.save
       # redirect experience listing if data provided is valid
-      redirect_to user_path(current_user)
+      redirect_to user_path(@experience.user)
     else
       # show form again if user data not valid
       render :new
