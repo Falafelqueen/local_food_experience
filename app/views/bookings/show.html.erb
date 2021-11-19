@@ -24,7 +24,7 @@
 <p>Booking status:
 <% if @booking.active? %>
 <h4>pending</h4></p>
-<p>Waiting for <%= @experience.user["name"] %> to confirm your booking</p>
+<p><small>Waiting for <%= @experience.user["name"] %> to confirm your booking</small></p>
 <% else %>
 <h4>confirmed</h4>
 <p><%= @experience.user["name"] %> confirmed your booking</p>
