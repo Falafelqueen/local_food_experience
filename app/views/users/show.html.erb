@@ -36,8 +36,10 @@
             </div>
           </div>
           <% end %>
-          <div class="edit-delete">
-            <%= link_to "Edit", edit_experience_path(experience) %>
+          <div class="edit-button">
+              <%= link_to edit_experience_path(experience) do %>
+              <i class="fas fa-edit"></i>
+              <% end %>
           </div>
       </div>
     <% end %>
