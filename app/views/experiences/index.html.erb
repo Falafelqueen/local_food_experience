@@ -1,30 +1,36 @@
 <%# simple logic to print out a list of currently available experiences %>
 
 <div class="map-card-container">
-  <div id="map"
-      style="width: 100%; height: 100vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+  <% unless @experiences.empty? %>
+    <div id="map"
+        style="width: 100%; height: 100vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  <% end %>
   <div class="card-holder-map">
-    <% @experiences.each do |experience| %>
-        <div class="card">
-          <button class="js-fly" data-lat="<%= experience.latitude %>" data-lng="<%= experience.longitude %>"><%= image_tag "map-marked-solid.svg", class: "map-marked" %></button>
-          <%= link_to experience_path(experience), class: "h-100" do %>
-            <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
-            <div class="card-info">
-              <div class="d-flex flex-column">
-                <h2><%= experience.name %></h2>
-                <small><%= experience.address%></small>
+    <% unless @experiences.empty? %>
+      <% @experiences.each do |experience| %>
+          <div class="card">
+            <button class="js-fly" data-lat="<%= experience.latitude %>" data-lng="<%= experience.longitude %>"><%= image_tag "map-marked-solid.svg", class: "map-marked" %></button>
+            <%= link_to experience_path(experience), class: "h-100" do %>
+              <div class="card-image" style="background-image: url(<%= cl_image_path experience.photo.key%>)"></div>
+              <div class="card-info">
+                <div class="d-flex flex-column">
+                  <h2><%= experience.name %></h2>
+                  <small><%= experience.address%></small>
+                </div>
+                <% unless experience.user.photo.attachment.nil? %>
+                  <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                  <%= image_tag "https://sdchefs.org/wp-content/uploads/2016/07/chef-placeholder.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
               </div>
-              <% unless experience.user.photo.attachment.nil? %>
-                <%= cl_image_tag experience.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% else %>
-                <%= image_tag "https://sdchefs.org/wp-content/uploads/2016/07/chef-placeholder.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
+      <% end %>
+    <% else %>
+      <h3 class="no-results">Sorry, it seems like there are no results matching your search &#x1F615;</h1>
     <% end %>
   </div>
 </div>
