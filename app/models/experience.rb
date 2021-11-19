@@ -15,8 +15,8 @@ class Experience < ApplicationRecord
 
   # search feature config
   include PgSearch::Model
-  pg_search_scope :search_by_name,
-                  against: [:name],
+  pg_search_scope :search_by_name_and_address,
+                  against: %i[name address],
                   using: {
                     tsearch: { prefix: true }
                   }

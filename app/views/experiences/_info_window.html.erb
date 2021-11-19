@@ -1,2 +1,4 @@
-<h2><%= link_to experience.name, experience_path(experience) %></h2>
+
+<h2><%= link_to experience.name, experience_path(experience), class: "map-label" %></h2>
 <p><%= experience.address %></p>
+<div class="map-img" style="background-image: url(<%= cl_image_path experience.photo.key %>)"></div>
