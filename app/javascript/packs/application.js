@@ -25,8 +25,9 @@ import { totalPrice } from "../components/init_total_price";
 import "bootstrap";
 
 import { animateSearch } from "../plugins/animate_search";
-import { initMapbox } from '../plugins/init_mapbox';
-import { animate_search } from '../plugins/animate_search'
+import { initMapbox } from "../plugins/init_mapbox";
+import { animate_search } from "../plugins/animate_search";
+import { initFlatpickr } from "../plugins/flatpickr";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
