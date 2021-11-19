@@ -3,7 +3,7 @@ class ExperiencesController < ApplicationController
 
     # get correct list depending on search input
     if params[:query].present?
-      @experiences = Experience.search_by_name(params[:query])
+      @experiences = Experience.search_by_name_and_address(params[:query])
     else
       @experiences = Experience.all
     end
