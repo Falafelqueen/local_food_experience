@@ -96,7 +96,7 @@ counter = 0
   puts "Created #{counter} experience"
 end
 
-# Barcelona seeds
+Barcelona seeds
 
 file2 = URI.open("https://source.unsplash.com/1600x900/?#{search_words.sample}")
 exp2 = Experience.new(name: "#{cousine_types.sample} #{meal_types.sample}",
